@@ -1,0 +1,4 @@
+- [x]  Even when the game is paused the click counts
+- [x] Pointer is not available in the pause menu
+- [ ] ~~Animation is either too long or in the wrong order~~
+- [x] Pause menu is not working

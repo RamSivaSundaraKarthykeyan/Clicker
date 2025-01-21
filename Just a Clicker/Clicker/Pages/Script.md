@@ -1,0 +1,7 @@
+1. [[Clicker script]]
+2. [[Movement Script]]
+3. [[Sky Scripts]]
+4. [[Game Manager Script]]
+5. [[Pause Menu Script]]
+6. [[Main Menu Script]]
+7. [[Alternative code]]

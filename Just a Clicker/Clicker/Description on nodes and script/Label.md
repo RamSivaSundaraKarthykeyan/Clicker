@@ -1,0 +1,1 @@
+A **`Label`** in Godot is a type of node used to display text on the screen. It’s part of the UI (User Interface) system and is commonly used to show static or dynamic text, like scores, messages, or descriptions.
