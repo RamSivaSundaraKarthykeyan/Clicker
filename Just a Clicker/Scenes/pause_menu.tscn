@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl551wgmwp6nf"]
+
+[ext_resource type="Texture2D" uid="uid://c75yi7i6san8p" path="res://Assets/black.jpeg" id="1_jgjmx"]
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_uhemv"]
+[ext_resource type="Theme" uid="uid://bfqb2b7bychcy" path="res://Assets/game_theme.tres" id="3_cyf4y"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_uhemv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.207)
+position = Vector2(991.6, 540)
+scale = Vector2(4.98693, 4.71616)
+texture = ExtResource("1_jgjmx")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -72.0
+offset_right = 72.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_cyf4y")
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="resume" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="main_menu" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 162.0
+offset_bottom = 8.0
+grow_vertical = 2
+text = "Space or LMB - Click
+RMB - Move hand
+R - Reset
+S - Save
+L - Load
+M - Mute"
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = 125.0
+offset_bottom = 11.0
+grow_vertical = 2
+text = "Goal: Hit 10000"
+
+[connection signal="pressed" from="Panel/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/main_menu" to="." method="_on_exit_pressed"]

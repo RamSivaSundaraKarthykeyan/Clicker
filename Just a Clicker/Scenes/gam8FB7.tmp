@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dua2bchky7gi5"]
+
+[ext_resource type="Script" path="res://Scenes/gameManager.gd" id="1_gfjur"]
+[ext_resource type="PackedScene" uid="uid://bx3nmep5mdbrc" path="res://Scenes/MainActual.tscn" id="1_ltj7j"]
+[ext_resource type="PackedScene" uid="uid://cl551wgmwp6nf" path="res://Scenes/pause_menu.tscn" id="3_dvu6p"]
+
+[node name="GameManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_gfjur")
+
+[node name="Node2D" parent="." instance=ExtResource("1_ltj7j")]
+position = Vector2(576, 320)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_dvu6p")]

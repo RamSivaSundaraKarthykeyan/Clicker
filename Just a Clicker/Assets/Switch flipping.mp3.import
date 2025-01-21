@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cu3lptkvyxemg"
+path="res://.godot/imported/Switch flipping.mp3-ea0ff166e049c76822f8227ac4958eb1.mp3str"
+
+[deps]
+
+source_file="res://Assets/Switch flipping.mp3"
+dest_files=["res://.godot/imported/Switch flipping.mp3-ea0ff166e049c76822f8227ac4958eb1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

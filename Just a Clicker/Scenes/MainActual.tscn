@@ -1,0 +1,126 @@
+[gd_scene load_steps=15 format=3 uid="uid://bx3nmep5mdbrc"]
+
+[ext_resource type="Texture2D" uid="uid://fbf4o4esknv5" path="res://Assets/MorningSkyActual.png" id="1_84ooa"]
+[ext_resource type="Script" path="res://Scenes/MainActual.gd" id="1_488x6"]
+[ext_resource type="Texture2D" uid="uid://cfnbsiykgh07g" path="res://Assets/clicker.png" id="2_0l4iq"]
+[ext_resource type="Script" path="res://Scripts/blueSky.gd" id="2_a8c5b"]
+[ext_resource type="Texture2D" uid="uid://bdwyxnrn7rjrl" path="res://Assets/handwithclicker.png" id="2_wcugu"]
+[ext_resource type="Script" path="res://Scripts/clicker.gd" id="2_xjwfj"]
+[ext_resource type="Script" path="res://Scripts/movement.gd" id="3_1lgqy"]
+[ext_resource type="Texture2D" uid="uid://5ghx1cacqt6l" path="res://Assets/redsky.png" id="3_2ghgx"]
+[ext_resource type="Script" path="res://Scenes/nightSky.gd" id="3_fc5wj"]
+[ext_resource type="Script" path="res://Scripts/redSky.gd" id="3_iuahn"]
+[ext_resource type="Texture2D" uid="uid://csolhxmnliwfd" path="res://Assets/nightSky.png" id="4_5r3rc"]
+[ext_resource type="Texture2D" uid="uid://dhuiw32uq1rhs" path="res://Assets/handwithclicker_animated.png" id="6_jnsrj"]
+[ext_resource type="PackedScene" uid="uid://5hntyvfn51rc" path="res://Scenes/click_sound.tscn" id="12_1u1hl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_civpg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jnsrj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wcugu")
+}],
+"loop": false,
+"name": &"Click",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wcugu")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("actual_clicker")]
+process_mode = 1
+script = ExtResource("1_488x6")
+actual_clicker = NodePath("Control/Sprite2D2/AnimatedSprite2D/Label")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(992, 541)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="end_sky" type="Sprite2D" parent="Control"]
+position = Vector2(992, 540.65)
+scale = Vector2(1.55, 1.49819)
+texture = ExtResource("4_5r3rc")
+
+[node name="Label" type="Label" parent="Control/end_sky"]
+offset_left = -69.2641
+offset_top = -320.245
+offset_right = 247.736
+offset_bottom = -271.245
+text = "You have hit 10000 counts.
+Thanks for playing and you can quit now."
+
+[node name="nightSky" type="Sprite2D" parent="Control" node_paths=PackedStringArray("clicker")]
+texture_filter = 1
+position = Vector2(992, 540.045)
+scale = Vector2(1.55, 1.49988)
+texture = ExtResource("4_5r3rc")
+script = ExtResource("3_fc5wj")
+clicker = NodePath("../Sprite2D2/AnimatedSprite2D/Label")
+
+[node name="redSky" type="Sprite2D" parent="Control" node_paths=PackedStringArray("clicker")]
+texture_filter = 1
+position = Vector2(992.006, 544.651)
+scale = Vector2(1.54999, 1.5093)
+texture = ExtResource("3_2ghgx")
+script = ExtResource("3_iuahn")
+clicker = NodePath("../Sprite2D2/AnimatedSprite2D/Label")
+
+[node name="blueSky" type="Sprite2D" parent="Control" node_paths=PackedStringArray("clicker")]
+texture_filter = 1
+position = Vector2(992.016, 548)
+scale = Vector2(1.54998, 1.52222)
+texture = ExtResource("1_84ooa")
+script = ExtResource("2_a8c5b")
+clicker = NodePath("../Sprite2D2/AnimatedSprite2D/Label")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control"]
+position = Vector2(744, 629.9)
+scale = Vector2(0.48, 0.4505)
+texture = ExtResource("2_0l4iq")
+script = ExtResource("3_1lgqy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Sprite2D2"]
+position = Vector2(-5102.95, 5101.06)
+rotation = 3.14159
+scale = Vector2(2.79611, 2.56914)
+texture = ExtResource("2_wcugu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Sprite2D2"]
+position = Vector2(-1510.92, 1474.72)
+scale = Vector2(2.67048, 2.62208)
+sprite_frames = SubResource("SpriteFrames_civpg")
+animation = &"Click"
+frame_progress = 1.0
+
+[node name="Label" type="Label" parent="Control/Sprite2D2/AnimatedSprite2D"]
+offset_left = 533.539
+offset_top = -581.175
+offset_right = 573.539
+offset_bottom = -558.175
+scale = Vector2(1.628, 1.04225)
+script = ExtResource("2_xjwfj")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control/Sprite2D2"]
+visible = false
+position = Vector2(-1510.92, 1474.72)
+scale = Vector2(2.67048, 2.62208)
+texture = ExtResource("2_wcugu")
+
+[node name="ClickSound" parent="." instance=ExtResource("12_1u1hl")]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b423dilnhalxn"]
+
+[ext_resource type="Texture2D" uid="uid://dp8dpqskypdqt" path="res://Assets/TextBox.png" id="1_qqq7h"]
+
+[node name="Node" type="Node"]
+
+[node name="TextBox" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(311, 114)
+scale = Vector2(12.4222, 9.35123)
+texture = ExtResource("1_qqq7h")
+
+[node name="Label" type="Label" parent="TextBox"]
+offset_left = -20.4286
+offset_top = -20.4068
+offset_right = 19.5714
+offset_bottom = 2.59322
+scale = Vector2(1.02347, 1.79381)

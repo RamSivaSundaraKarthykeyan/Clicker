@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkbg7txlce4nb"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_twgit"]
+[ext_resource type="Texture2D" uid="uid://cc0vnw5g07bdq" path="res://Assets/MainMenu.png" id="2_5to1a"]
+[ext_resource type="Theme" uid="uid://bfqb2b7bychcy" path="res://Assets/game_theme.tres" id="3_g08fq"]
+[ext_resource type="Texture2D" uid="uid://dlwkylxntaeka" path="res://Assets/Logo.png" id="4_w8lm6"]
+[ext_resource type="PackedScene" uid="uid://5hntyvfn51rc" path="res://Scenes/click_sound.tscn" id="5_sphgd"]
+
+[node name="CanvasLayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_twgit")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+scale = Vector2(1.54766, 1.5)
+texture = ExtResource("2_5to1a")
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -124.0
+offset_right = 70.0
+offset_bottom = -23.0
+grow_vertical = 2
+scale = Vector2(3.06202, 2.91775)
+
+[node name="click" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_g08fq")
+text = "Click!"
+
+[node name="exit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="CheckButton" type="CheckButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -10.0
+offset_right = -81.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.685, 1.685)
+button_pressed = true
+text = "Sound Fx"
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(1024, 112)
+texture = ExtResource("4_w8lm6")
+
+[node name="ClickSound" parent="." instance=ExtResource("5_sphgd")]
+
+[connection signal="pressed" from="Control/VBoxContainer/click" to="." method="_on_click_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/click" to="Control" method="_on_click_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/exit" to="Control" method="_on_exit_pressed"]
+[connection signal="toggled" from="Control/CheckButton" to="." method="_on_check_button_toggled"]

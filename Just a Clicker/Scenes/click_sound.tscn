@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://5hntyvfn51rc"]
+
+[ext_resource type="AudioStream" uid="uid://cbn0oijn22mdj" path="res://Assets/clock_tick.mp3" id="1_l5wyd"]
+[ext_resource type="Script" path="res://ClickSound.gd" id="1_rm25m"]
+
+[node name="ClickSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_l5wyd")
+script = ExtResource("1_rm25m")
